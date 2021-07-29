@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Assets.Snake
 {
-    public class HeadRotation : MonoBehaviour
+    public class SegmentRotation : MonoBehaviour
     {
-        public void RotateHead(IDirectionManager snakeDirection)
+        public void RotateSegment(IDirectionManager snakeDirection)
         {
             transform.eulerAngles = new Vector3(0, 0, GetTargetEulerAngle(snakeDirection));
         }

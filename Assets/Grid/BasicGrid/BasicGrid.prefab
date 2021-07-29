@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e9a510dbef20764da1ea81653894c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSize: {x: 10, y: 10}
+  gridSize: {x: 20, y: 20}
   distancBetweenNodes: 10
   startingGridPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &1151674792821962564

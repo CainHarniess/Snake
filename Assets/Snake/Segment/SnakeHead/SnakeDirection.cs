@@ -5,11 +5,8 @@ namespace Assets.Snake
 {
     public class SnakeDirection : MonoBehaviour, IDirectionManager
     {
-        #region Fields
         [SerializeField] private Vector3 movementDirection = Vector3.up;
-        #endregion
 
-        #region Properties
         public Vector3 MovementDirection { get => movementDirection; }
         private bool IsMovingInYDirection
         { 
@@ -19,14 +16,11 @@ namespace Assets.Snake
         {
             get => movementDirection == Vector3.left && movementDirection == Vector3.right;
         }
-        #endregion
 
-        #region Unity Event Functions
         void Update()
         {
             this.movementDirection = GetSnakeDirection();
         }
-        #endregion
 
         private Vector3 GetSnakeDirection()
         {
