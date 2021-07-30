@@ -4,18 +4,11 @@ namespace Assets.Snake
 {
     public class Segment : MonoBehaviour
     {
-        [SerializeField] private GameObject preceedingSegment;
+        protected SnakeLength snakeLengthManager;
 
-        public GameObject PreceedingSegment
+        protected virtual void Awake()
         {
-            get => preceedingSegment;
-            set
-            {
-                if (preceedingSegment = null)
-                {
-                    preceedingSegment = value;
-                }
-            }
+            snakeLengthManager = GetComponentInParent<SnakeLength>();
         }
     }
 }

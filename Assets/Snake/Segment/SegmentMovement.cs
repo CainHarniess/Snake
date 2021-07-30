@@ -1,16 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Snake
 {
     public class SegmentMovement : MonoBehaviour
     {
-        private Segment segment;
+        private BodySegment segment;
         private Snake snake;
         private void Awake()
         {
-            segment = GetComponentInParent<Segment>();
+            segment = GetComponentInParent<BodySegment>();
             snake = GetComponentInParent<Snake>();
         }
 
@@ -19,11 +18,11 @@ namespace Assets.Snake
             StartCoroutine(FollowPreceedingSegment());
         }
 
-        private IEnumerator FollowPreceedingSegment()
+        public IEnumerator FollowPreceedingSegment()
         {
             float travelPct = 0f;
             Vector3 startPosition = transform.position;
-            Vector3 endPosition = segment.PreceedingSegment.transform.position;
+            Vector3 endPosition = segment.PreceedingSegmentGameObject.transform.position;
 
             while (travelPct < 1f)
             {

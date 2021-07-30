@@ -15,7 +15,7 @@ namespace Assets.Edibles
 
         public void Spawn()
         {
-            edible.transform.position = GetRandomSpawnPosition(this.gridManager);
+            edible.transform.position = GetRandomSpawnPosition(gridManager);
             edible.gameObject.SetActive(true);
         }
 
