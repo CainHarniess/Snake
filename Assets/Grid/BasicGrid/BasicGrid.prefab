@@ -65,7 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridSize: {x: 20, y: 20}
   distancBetweenNodes: 10
-  startingGridPosition: {x: 0, y: 0, z: 0}
+  startingGridPosition: {x: 5, y: 10, z: 0}
 --- !u!1001 &1151674792821962564
 PrefabInstance:
   m_ObjectHideFlags: 0

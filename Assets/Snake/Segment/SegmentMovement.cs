@@ -5,8 +5,9 @@ namespace Assets.Snake
 {
     public class SegmentMovement : MonoBehaviour
     {
-        private BodySegment segment;
-        private Snake snake;
+        protected BodySegment segment;
+        protected Snake snake;
+
         private void Awake()
         {
             segment = GetComponentInParent<BodySegment>();
@@ -18,7 +19,7 @@ namespace Assets.Snake
             StartCoroutine(FollowPreceedingSegment());
         }
 
-        public IEnumerator FollowPreceedingSegment()
+        protected virtual IEnumerator FollowPreceedingSegment()
         {
             float travelPct = 0f;
             Vector3 startPosition = transform.position;

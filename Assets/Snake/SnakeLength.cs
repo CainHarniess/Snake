@@ -18,5 +18,13 @@ namespace Assets.Snake
         {
             Instantiate(snakeSegmentPrefab, snakeTailSegmentGameObject.transform.position, snakeTailSegmentGameObject.transform.rotation, transform);
         }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                IncreaseSnakeLength();
+            }
+        }
     }
 }

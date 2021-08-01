@@ -8,14 +8,14 @@ namespace Assets.Snake
     {
         private Snake snake;
         private SegmentRotation headRotation;
-
-        [SerializeField] private IDirectionManager snakeDirection;
+        private SnakeDirection snakeDirection;
+        
         [SerializeField] private GridManager gridManager;
        
         private void Awake()
         {
             snake = GetComponentInParent<Snake>();
-            snakeDirection = GetComponent<IDirectionManager>();
+            snakeDirection = GetComponent<SnakeDirection>();
             headRotation = GetComponentInChildren<SegmentRotation>();
         }
 
@@ -27,10 +27,10 @@ namespace Assets.Snake
         private IEnumerator MoveToNextGridNode(Vector3 startPosition)
         {
             float travelPct = 0f;
-
-            Vector3 movementVector = gridManager.DistancBetweenNodes * snakeDirection.MovementDirection;
-            Vector3 endPosition = startPosition + movementVector;
-
+            Vector3 endPosition = GetEndPosition(startPosition);
+            
+            AddEndCoordinateToSnakeDictionaryFromPosition(endPosition);
+            
             headRotation.RotateSegment(snakeDirection);
 
             while (travelPct < 1f)
@@ -41,9 +41,29 @@ namespace Assets.Snake
             }
 
             StopCoroutine(nameof(MoveToNextGridNode));
-
+            snakeDirection.ResetCurrentDirection();
             Vector3 newStartPosition = endPosition;
             StartCoroutine(MoveToNextGridNode(newStartPosition));
+        }
+
+        private Vector3 GetEndPosition(Vector3 startPosition)
+        {
+            return startPosition + gridManager.DistancBetweenNodes * snakeDirection.MovementDirection;
+        }
+
+        private void AddEndCoordinateToSnakeDictionaryFromPosition(Vector3 endPosition)
+        {
+            Vector2Int endCoordindate = gridManager.GetGridCoordinateFromPosition(endPosition);
+
+            if (!snake.SnakeDictionary.ContainsKey(endCoordindate))
+            {
+                snake.SnakeDictionary.Add(endCoordindate, gridManager.GridDictionary[endCoordindate]);
+            }
+            else
+            {
+                Debug.Log("Mate, you crashed the snake into itself.");
+                snake.KillMovementSpeed();
+            }
         }
     }
 }
