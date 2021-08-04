@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Snake
+namespace Assets.RevisedSnake
 {
     public class SnakeDirection : MonoBehaviour
     {
@@ -12,11 +12,11 @@ namespace Assets.Snake
         {
             get
             {
-                if (MovementAxisChanged)
-                {
-                    movementDirection = requestedMovementDirection;
-                    currentMovementDirection = requestedMovementDirection;
-                }
+                //if (MovementAxisChanged)
+                //{
+                //    movementDirection = requestedMovementDirection;
+                //    currentMovementDirection = requestedMovementDirection;
+                //}
                 return movementDirection;
             }
         }

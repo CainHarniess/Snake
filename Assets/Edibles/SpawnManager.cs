@@ -22,8 +22,8 @@ namespace Assets.Edibles
         private Vector3 GetRandomSpawnPosition(GridManager gridManager)
         {
             Vector3 spawnPosition = Vector3.zero;
-            spawnPosition.x = gridManager.DistancBetweenNodes * Random.Range(0, gridManager.GridSize.x);
-            spawnPosition.y = gridManager.DistancBetweenNodes * Random.Range(0, gridManager.GridSize.y);
+            spawnPosition.x = gridManager.TileSeparation * Random.Range(0, gridManager.GridSize.x);
+            spawnPosition.y = gridManager.TileSeparation * Random.Range(0, gridManager.GridSize.y);
             return spawnPosition;
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Assets.Grid;
+using Assets.ReRevisedSnake;
 
 namespace Assets.Snake
 {
@@ -14,14 +15,13 @@ namespace Assets.Snake
        
         private void Awake()
         {
-            snake = GetComponentInParent<Snake>();
-            snakeDirection = GetComponent<SnakeDirection>();
+            snake = GetComponentInParent<Snake>(); 
             headRotation = GetComponentInChildren<SegmentRotation>();
         }
 
         private void OnEnable()
         {
-            StartCoroutine(MoveToNextGridNode(gridManager.StartingGridPosition));
+            //StartCoroutine(MoveToNextGridNode(gridManager.StartingGridPosition));
         }
 
         private IEnumerator MoveToNextGridNode(Vector3 startPosition)
@@ -31,7 +31,7 @@ namespace Assets.Snake
             
             AddEndCoordinateToSnakeDictionaryFromPosition(endPosition);
             
-            headRotation.RotateSegment(snakeDirection);
+            // headRotation.RotateSegment(snakeDirection);
 
             while (travelPct < 1f)
             {
@@ -41,14 +41,14 @@ namespace Assets.Snake
             }
 
             StopCoroutine(nameof(MoveToNextGridNode));
-            snakeDirection.ResetCurrentDirection();
+            //snakeDirection.ResetCurrentDirection();
             Vector3 newStartPosition = endPosition;
             StartCoroutine(MoveToNextGridNode(newStartPosition));
         }
 
         private Vector3 GetEndPosition(Vector3 startPosition)
         {
-            return startPosition + gridManager.DistancBetweenNodes * snakeDirection.MovementDirection;
+            return startPosition + gridManager.TileSeparation * snakeDirection.MovementDirection;
         }
 
         private void AddEndCoordinateToSnakeDictionaryFromPosition(Vector3 endPosition)
