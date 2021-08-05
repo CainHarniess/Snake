@@ -6,7 +6,7 @@ namespace Assets.Snake
     [RequireComponent(typeof(SnakeMovement))]
     public class SnakeManager : MonoBehaviour
     {
-        [SerializeField] List<GameObject> snakeGameObjects;
+        private List<GameObject> snakeGameObjects;
        
         public List<GameObject> SnakeGameObjects { get => snakeGameObjects; }
         public GameObject SnakeTail { get => SnakeGameObjects[SnakeGameObjects.Count - 1]; }
