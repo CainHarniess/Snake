@@ -7,15 +7,32 @@ namespace Assets.ReRevisedSnake
     public class SnakeMovement : MonoBehaviour
     {
         private bool snakeMovementCoroutineRunning;
+        private SnakeManager snakeManager;
 
-        [SerializeField] private List<SegmentMovement> segmentMovements;
         [SerializeField] private float movementSpeed = 5f;
 
         public delegate void CompletionAction();
         public event CompletionAction OnCompletion;
 
-        public List<SegmentMovement> SegmentMovements { get => segmentMovements; }
         public bool SnakeMovementCoroutineRunning { get => snakeMovementCoroutineRunning; }
+
+        private void Awake()
+        {
+            snakeManager = GetComponent<SnakeManager>();
+        }
+
+        private void Start()
+        {
+            StartCoroutine(MoveSnake());
+        }
+
+        private void Update()
+        {
+            if (!SnakeMovementCoroutineRunning)
+            {
+                StartCoroutine(MoveSnake());
+            }
+        }
 
         public IEnumerator MoveSnake()
         {
@@ -34,17 +51,17 @@ namespace Assets.ReRevisedSnake
 
         private void UpdateSegmentTilePositions()
         {
-            foreach (SegmentMovement segementMovement in segmentMovements)
+            foreach (GameObject segmentGameObject in snakeManager.SnakeGameObjects)
             {
-                segementMovement.UpdateSegmentTilePositions();
+                segmentGameObject.GetComponent<SegmentMovement>().UpdateSegmentTilePositions();
             }
         }
 
         private void MoveSegments(float travelPercentage)
         {
-            foreach (SegmentMovement segementMovement in segmentMovements)
+            foreach (GameObject SegmentGameObject in snakeManager.SnakeGameObjects)
             {
-                segementMovement.MoveSegment(travelPercentage);
+                SegmentGameObject.GetComponent<SegmentMovement>().MoveSegment(travelPercentage);
             }
         }
     }

@@ -12,11 +12,7 @@ namespace Assets.ReRevisedSnake
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Trigger!");
-            if (other.gameObject.CompareTag("Edible"))
-            {
-                snakeLength.IncreaseSnakeLength();
-            }
+            if (other.gameObject.CompareTag("Edible")) snakeLength.IncreaseSnakeLength();
         }
     }
 }

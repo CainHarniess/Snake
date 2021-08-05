@@ -7,17 +7,21 @@ namespace Assets.ReRevisedSnake
     public class BodySegmentMovement : SegmentMovement
     {
         [SerializeField] private SegmentMovement preceedingSegmentMovement;
-
-        public SegmentMovement PreceedingSegmentMovement
-        { 
-            get => preceedingSegmentMovement;
-            set => preceedingSegmentMovement = value;
-        }
+        
+        public Vector3 PreceedingSegmentMovementPosition { get => preceedingSegmentMovement.CurrentGridTilePosition; }
 
         protected override Vector3 GetNextGridTilePosition()
         {
             try { return preceedingSegmentMovement.CurrentGridTilePosition; }
             catch { return currentGridTilePosition; }
+        }
+
+        public static void SetPreceedingSegmentMovementFromGameObjects(GameObject gameObject, GameObject preceedingGameObject)
+        {
+            BodySegmentMovement bodySegmentMovement = gameObject.GetComponent<BodySegmentMovement>();
+            BodySegmentMovement preceedingBodySegmentMovement = preceedingGameObject.GetComponent<BodySegmentMovement>();
+
+            bodySegmentMovement.preceedingSegmentMovement = preceedingBodySegmentMovement;
         }
     }
 }

@@ -6,24 +6,34 @@ namespace Assets.ReRevisedSnake
     [RequireComponent(typeof(SnakeMovement))]
     public class SnakeManager : MonoBehaviour
     {
-        private SnakeMovement snakeMovement;
-        
+        [SerializeField] List<GameObject> snakeGameObjects;
+       
+        public List<GameObject> SnakeGameObjects { get => snakeGameObjects; }
+        public GameObject SnakeTail { get => SnakeGameObjects[SnakeGameObjects.Count - 1]; }
+        public GameObject SnakePreTail { get => SnakeGameObjects[SnakeGameObjects.Count - 2]; }
+
         private void Awake()
         {
-            snakeMovement = GetComponent<SnakeMovement>();
+            snakeGameObjects = GetSnakeSegmentGameObjects();
         }
 
-        private void Start()
+        public void AddSegmentGameObjectToSnake(GameObject segmentToAdd)
         {
-            StartCoroutine(snakeMovement.MoveSnake());
+            GameObject tail = SnakeTail;
+            BodySegmentMovement.SetPreceedingSegmentMovementFromGameObjects(segmentToAdd, SnakePreTail);
+            BodySegmentMovement.SetPreceedingSegmentMovementFromGameObjects(tail, segmentToAdd);
+            snakeGameObjects.Add(segmentToAdd);
+            snakeGameObjects.Add(tail);
         }
 
-        private void Update()
+        private List<GameObject> GetSnakeSegmentGameObjects()
         {
-            if (!snakeMovement.SnakeMovementCoroutineRunning)
+            List<GameObject> output = new List<GameObject>(transform.childCount - 1);
+            for (int i = 0; i < transform.childCount; i++)
             {
-                StartCoroutine(snakeMovement.MoveSnake());
+                output.Add(transform.GetChild(i).gameObject);
             }
+            return output;
         }
     }
 }

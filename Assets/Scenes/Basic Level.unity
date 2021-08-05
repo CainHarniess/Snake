@@ -585,6 +585,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1071191427871904888, guid: c95ae6b83ebeea24296c13e2629e437c, type: 3}
+      propertyPath: movementSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1071191427871904891, guid: c95ae6b83ebeea24296c13e2629e437c, type: 3}
       propertyPath: m_Name
       value: SnakeManager
