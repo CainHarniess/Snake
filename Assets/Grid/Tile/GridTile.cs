@@ -8,8 +8,10 @@ namespace Assets.Grid
         private GridManager gridManager;
         
         [SerializeField] private Vector2Int gridCoordinates;
+        [SerializeField] private bool isInSnake = false;
 
         public Vector2Int GridCoordinates { get => gridCoordinates; }
+        public bool IsInSnake { get => isInSnake; set => isInSnake = value; }
 
         void Awake()
         {

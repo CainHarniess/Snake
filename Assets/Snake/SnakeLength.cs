@@ -1,30 +1,30 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Snake
 {
     public class SnakeLength : MonoBehaviour
     {
-        [SerializeField] private GameObject snakeTailSegmentGameObject;
-        [SerializeField] private GameObject snakeHeadSegmentGameObject;
-        [SerializeField] private GameObject snakeSegmentPrefab;
+        private SnakeManager snakeManager;
 
-        public GameObject SnakeSegmentPrefab { get => snakeSegmentPrefab; }
-        public GameObject SnakeHeadSegment { get => snakeHeadSegmentGameObject; }
-        public GameObject SnakeTailSegmentGameObject { get => snakeTailSegmentGameObject; }
-        public TailSegment SnakeTailSegment { get => SnakeTailSegmentGameObject.GetComponent<TailSegment>(); } 
+        [SerializeField] private GameObject snakeBodySegmentPrefab;
+
+        private Vector3 GridInstantiationPosition
+        { get => snakeManager.SnakePreTail.GetComponent<BodySegmentMovement>().PreceedingSegmentMovementPosition; }
+
+        private void Awake()
+        {
+            snakeManager = GetComponent<SnakeManager>();
+        }  
 
         public void IncreaseSnakeLength()
         {
-            Instantiate(snakeSegmentPrefab, snakeTailSegmentGameObject.transform.position, snakeTailSegmentGameObject.transform.rotation, transform);
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                IncreaseSnakeLength();
-            }
+            GameObject newSegment = Instantiate(snakeBodySegmentPrefab,
+                                                GridInstantiationPosition,
+                                                snakeManager.SnakePreTail.transform.rotation,
+                                                transform
+                                               );
+            snakeManager.AddSegmentGameObjectToSnake(newSegment);
         }
     }
 }

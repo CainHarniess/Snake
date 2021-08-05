@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562540518740226455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 5, z: 0}
+  m_LocalPosition: {x: 5, y: 5, z: -1}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 7037205906966379230}
@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7037205906966379230
 Transform:
   m_ObjectHideFlags: 0
@@ -169,9 +169,9 @@ MonoBehaviour:
   OnEaten:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 523630427564064260, guid: eb35cc0486b2007459ce38de7b82e9d1, type: 3}
-        m_TargetAssemblyTypeName: Assets.Snake.Snake, Assembly-CSharp
-        m_MethodName: IncreaseSnakeLength
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Assets.Edibles.SpawnManager, Assembly-CSharp
+        m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -181,7 +181,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2612571769923147083, guid: 44b7ff13089521b4aa807115be7c709f, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
         m_MethodName: IncreaseScore
         m_Mode: 2
@@ -193,9 +193,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1357538803, guid: ef54c9519dc15a34cba54117d920f6c9, type: 3}
-        m_TargetAssemblyTypeName: Assets.Edibles.SpawnManager, Assembly-CSharp
-        m_MethodName: Spawn
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Assets.Snake.SnakeLength, Assembly-CSharp
+        m_MethodName: IncreaseSnakeLength
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
