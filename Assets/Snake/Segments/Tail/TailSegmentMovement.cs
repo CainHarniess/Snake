@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.ReRevisedSnake
+namespace Assets.Snake
 {
     public class TailSegmentMovement : BodySegmentMovement
     {

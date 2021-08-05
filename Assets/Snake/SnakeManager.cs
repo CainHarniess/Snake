@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.ReRevisedSnake
+namespace Assets.Snake
 {
     [RequireComponent(typeof(SnakeMovement))]
     public class SnakeManager : MonoBehaviour

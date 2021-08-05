@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Assets.Grid;
 
-namespace Assets.ReRevisedSnake
+namespace Assets.Snake
 {
     sealed class HeadSegmentMovement : SegmentMovement
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.ReRevisedSnake
+namespace Assets.Snake
 {
     public class SnakeMovement : MonoBehaviour
     {

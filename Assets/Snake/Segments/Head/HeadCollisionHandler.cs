@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.ReRevisedSnake
+namespace Assets.Snake
 {
     public class HeadCollisionHandler : MonoBehaviour
     {

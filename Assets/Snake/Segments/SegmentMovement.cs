@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Assets.Grid;
 
-namespace Assets.ReRevisedSnake
+namespace Assets.Snake
 {
     public abstract class SegmentMovement : MonoBehaviour
     {
