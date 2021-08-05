@@ -33,6 +33,7 @@ GameObject:
   - component: {fileID: 1071191427871904886}
   - component: {fileID: 1071191427871904889}
   - component: {fileID: 1071191427871904888}
+  - component: {fileID: 1802663620}
   m_Layer: 0
   m_Name: SnakeManager
   m_TagString: SnakeManager
@@ -92,6 +93,20 @@ MonoBehaviour:
   - {fileID: 326029866889544539}
   - {fileID: 1144642248000583012}
   movementSpeed: 5
+--- !u!114 &1802663620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071191427871904891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af3032199cd394429a6ed2671ac4e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snakeList: []
+  snakeBodySegmentPrefab: {fileID: 1875033387114111611, guid: 3e92f64d48673ae4092d5a9f037a0ecd, type: 3}
 --- !u!114 &1256326383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,6 +474,7 @@ PrefabInstance:
     - {fileID: 1319745824073400091, guid: de6741ac0b9f7444fb9be8854e649954, type: 3}
     - {fileID: -5026898995109661095, guid: de6741ac0b9f7444fb9be8854e649954, type: 3}
     - {fileID: 1319745824073400068, guid: de6741ac0b9f7444fb9be8854e649954, type: 3}
+    - {fileID: 6776971480409998085, guid: de6741ac0b9f7444fb9be8854e649954, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de6741ac0b9f7444fb9be8854e649954, type: 3}
 --- !u!1 &1071191427945323762 stripped
 GameObject:

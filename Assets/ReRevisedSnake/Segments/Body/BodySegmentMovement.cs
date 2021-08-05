@@ -6,11 +6,18 @@ namespace Assets.ReRevisedSnake
 {
     public class BodySegmentMovement : SegmentMovement
     {
-        [SerializeField] protected SegmentMovement preceedingSegmentMovement;
+        [SerializeField] private SegmentMovement preceedingSegmentMovement;
+
+        public SegmentMovement PreceedingSegmentMovement
+        { 
+            get => preceedingSegmentMovement;
+            set => preceedingSegmentMovement = value;
+        }
 
         protected override Vector3 GetNextGridTilePosition()
         {
-            return preceedingSegmentMovement.CurrentGridTilePosition;
+            try { return preceedingSegmentMovement.CurrentGridTilePosition; }
+            catch { return currentGridTilePosition; }
         }
     }
 }
