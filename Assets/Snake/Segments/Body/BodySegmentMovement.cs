@@ -12,8 +12,15 @@ namespace Assets.Snake
 
         protected override Vector3 GetNextGridTilePosition()
         {
-            try { return preceedingSegmentMovement.CurrentGridTilePosition; }
-            catch { return currentGridTilePosition; }
+            try 
+            {
+                // Debug.Log("Try block: " + preceedingSegmentMovement.CurrentGridTilePosition);
+                return preceedingSegmentMovement.CurrentGridTilePosition; }
+            catch
+            {
+                // Debug.Log("Catch block; " + currentGridTilePosition);
+                return currentGridTilePosition;
+            }
         }
 
         public static void SetPreceedingSegmentMovementFromGameObjects(GameObject gameObject, GameObject preceedingGameObject)

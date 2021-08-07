@@ -9,9 +9,11 @@ namespace Assets.Grid
         
         [SerializeField] private Vector2Int gridCoordinates;
         [SerializeField] private bool isInSnake = false;
+        [SerializeField] private bool isObstacle = false;
 
         public Vector2Int GridCoordinates { get => gridCoordinates; }
         public bool IsInSnake { get => isInSnake; set => isInSnake = value; }
+        public bool IsObstacle { get => isObstacle; }
 
         void Awake()
         {

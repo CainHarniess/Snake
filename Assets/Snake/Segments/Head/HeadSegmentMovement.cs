@@ -17,18 +17,7 @@ namespace Assets.Snake
 
         protected override Vector3 GetNextGridTilePosition()
         {
-            Vector3 nextPosition = currentGridTilePosition + (gridManager.TileSeparation * snakeDirection.MovementDirection);
-            CheckForGridTileInSnakeAtPosition(nextPosition);
-            return nextPosition;
-        }
-
-        private void CheckForGridTileInSnakeAtPosition(Vector3 position)
-        {
-            GridTile nextGridTile = gridManager.GridDictionary[gridManager.GetGridCoordinateFromPosition(position)];
-            if (nextGridTile.IsInSnake)
-            {
-                Debug.Log("GridTile already in snake. Collision!?");
-            }
+            return currentGridTilePosition + (gridManager.TileSeparation * snakeDirection.MovementDirection);
         }
 
         public override void UpdateSegmentTilePositions()

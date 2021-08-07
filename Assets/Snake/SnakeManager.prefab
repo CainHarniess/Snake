@@ -85,14 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9a0b2f21b6b5342ae28041e4245df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentMovements:
-  - {fileID: 1071191427945323763}
-  - {fileID: 7717669274954460025}
-  - {fileID: 326029866641109775}
-  - {fileID: 326029866025646875}
-  - {fileID: 326029866889544539}
-  - {fileID: 1144642248000583012}
-  movementSpeed: 5
+  movementSpeed: 10
 --- !u!114 &1802663620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af3032199cd394429a6ed2671ac4e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snakeList: []
   snakeBodySegmentPrefab: {fileID: 1875033387114111611, guid: 3e92f64d48673ae4092d5a9f037a0ecd, type: 3}
 --- !u!114 &1256326383
 MonoBehaviour:
@@ -577,17 +569,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8645187815977232641, guid: 2f8a24e8c2ebeb44b9a2812b40f87b73, type: 3}
   m_PrefabInstance: {fileID: 4834679302800245850}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1144642248000583012 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5546936358711144766, guid: 2f8a24e8c2ebeb44b9a2812b40f87b73, type: 3}
-  m_PrefabInstance: {fileID: 4834679302800245850}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad06cf97c3bacc74182142ec58735c7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7007957068080579633
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,10 +3,9 @@ using UnityEngine;
 
 namespace Assets.Snake
 {
-    [RequireComponent(typeof(SnakeMovement))]
     public class SnakeManager : MonoBehaviour
     {
-        private List<GameObject> snakeGameObjects;
+        [SerializeField] private List<GameObject> snakeGameObjects;
        
         public List<GameObject> SnakeGameObjects { get => snakeGameObjects; }
         public GameObject SnakeTail { get => SnakeGameObjects[SnakeGameObjects.Count - 1]; }
