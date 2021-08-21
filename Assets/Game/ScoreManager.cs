@@ -2,16 +2,21 @@ using UnityEngine;
 using Assets.Edibles;
 using Assets.UI;
 
-
+[RequireComponent(typeof(ScoreUIManager))]
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private int score;
-    [SerializeField] private UIManager ui;
+    [SerializeField] private ScoreUIManager scoreUIManager;
     public int Score { get => score; }
+
+    private void Awake()
+    {
+        scoreUIManager = GetComponent<ScoreUIManager>();
+    }
 
     public void IncreaseScore(Edible edible)
     {
         score += edible.ScoreValue;
-        ui.UpdateDisplay(score.ToString());
+        scoreUIManager.UpdateDisplay(score.ToString());
     }
 }

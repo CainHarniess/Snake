@@ -5,7 +5,11 @@ namespace Assets.Game
     public class GameOverState : State
     {
         private GameObject gameOverUI;
-        
+
+        public GameOverState(GameObject gameOverUI)
+        {
+            this.gameOverUI = gameOverUI;
+        }
 
         public override void Start()
         {
@@ -19,9 +23,6 @@ namespace Assets.Game
             Time.timeScale = 1f;
         }
 
-        public GameOverState(GameObject gameOverUI)
-        {
-            this.gameOverUI = gameOverUI;
-        }
+        
     }
 }

@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using Assets.UI;
 
 public class GameOverMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private TextMeshProUGUI textMeshProUGUI;
+    [SerializeField] ScoreManager scoreManager;
+
+    [SerializeField] private const string scoreStringTemplate = "Score: {0}";
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        textMeshProUGUI.text = string.Format(scoreStringTemplate, scoreManager.Score);
     }
 }
