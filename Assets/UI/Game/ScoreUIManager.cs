@@ -5,8 +5,10 @@ namespace Assets.UI
 {
     public class ScoreUIManager : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI textMeshProUGUI;
-        [SerializeField] private const string guiString = "Score: {0}";
+        private TextMeshProUGUI textMeshProUGUI;
+        [SerializeField] private const string scoreStringTemplate = "Score: {0}";
+
+        public string ScoreString { get => textMeshProUGUI.text; }
 
         private void Awake()
         {
@@ -15,7 +17,7 @@ namespace Assets.UI
 
         public void UpdateDisplay(string newValue)
         {
-            textMeshProUGUI.text = string.Format(guiString, newValue);
+            textMeshProUGUI.text = string.Format(scoreStringTemplate, newValue);
         }
     }
 }
