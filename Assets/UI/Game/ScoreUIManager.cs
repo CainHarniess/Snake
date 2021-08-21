@@ -1,11 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 namespace Assets.UI
 {
-    public class UIManager : MonoBehaviour
+    public class ScoreUIManager : MonoBehaviour
     {
-        private TextMeshProUGUI textMeshProUGUI;
+        [SerializeField] private TextMeshProUGUI textMeshProUGUI;
         [SerializeField] private const string guiString = "Score: {0}";
 
         private void Awake()
