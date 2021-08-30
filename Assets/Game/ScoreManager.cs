@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
         scoreUIManager = GetComponent<ScoreUIManager>();
     }
 
-    public void IncreaseScore(Edible edible)
+    public void IncreaseScore(BasicEdible edible)
     {
         score += edible.ScoreValue;
         scoreUIManager.UpdateDisplay(score.ToString());

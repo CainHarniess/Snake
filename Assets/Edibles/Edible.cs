@@ -1,17 +1,16 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace Assets.Edibles
 
 {
-    public class Edible : MonoBehaviour
+    public abstract class Edible : MonoBehaviour
     {
-        [SerializeField] private int scoreValue;
-        [SerializeField] private UnityEvent OnEaten;
-
+        [SerializeField] protected int scoreValue;
+        [SerializeField] protected UnityEvent OnEaten;
         public int ScoreValue { get => scoreValue; }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        protected virtual void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("SnakeHead"))
             {
