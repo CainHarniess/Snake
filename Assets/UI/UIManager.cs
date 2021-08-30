@@ -5,8 +5,14 @@ namespace Assets.UI
 {
     public class UIManager : MonoBehaviour
     {
+        private GameStateMachine gameStateMachine;
+
         [SerializeField] private GameObject pauseMenuUi;
-        [SerializeField] private GameStateMachine gameStateMachine;
+        
+        private void Awake()
+        {
+            gameStateMachine = GameObject.FindGameObjectWithTag(Tags.GameStateMachine).GetComponent<GameStateMachine>();
+        }
 
         private void Update()
         {
@@ -21,3 +27,4 @@ namespace Assets.UI
         }
     }
 }
+

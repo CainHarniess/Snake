@@ -2,7 +2,6 @@
 using UnityEngine.Events;
 
 namespace Assets.Edibles
-
 {
     public abstract class Edible : MonoBehaviour
     {
@@ -12,7 +11,7 @@ namespace Assets.Edibles
 
         protected virtual void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("SnakeHead"))
+            if (other.gameObject.CompareTag(Tags.SnakeHead))
             {
                 OnEaten.Invoke();
             }

@@ -21,7 +21,7 @@ namespace Assets.Grid
 
         private void Awake()
         {
-            gameStateMachine = GameObject.FindGameObjectWithTag("GameStateMachine").GetComponent< StateMachine>();
+            gameStateMachine = GameObject.FindGameObjectWithTag(Tags.GameStateMachine).GetComponent<StateMachine>();
             gridCollisionSource = GetComponent<AudioSource>();
         }
 

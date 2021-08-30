@@ -5,6 +5,7 @@ namespace Assets.UI
 {
     public class ScoreUIManager : MonoBehaviour
     {
+        [SerializeField] private ScoreManager scoreManager;
         private TextMeshProUGUI textMeshProUGUI;
         [SerializeField] private const string scoreStringTemplate = "Score: {0}";
 
@@ -12,12 +13,13 @@ namespace Assets.UI
 
         private void Awake()
         {
+            scoreManager = GameObject.FindGameObjectWithTag(Tags.ScoreManager).GetComponent<ScoreManager>();
             textMeshProUGUI = GetComponent<TextMeshProUGUI>();
         }
 
-        public void UpdateDisplay(string newValue)
+        public void UpdateDisplay()
         {
-            textMeshProUGUI.text = string.Format(scoreStringTemplate, newValue);
+            textMeshProUGUI.text = string.Format(scoreStringTemplate, scoreManager.Score);
         }
     }
 }
