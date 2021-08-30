@@ -64,6 +64,7 @@ MonoBehaviour:
   gridTile: {fileID: 1753776262784313769}
   obstacleMaterial: {fileID: 2100000, guid: bdb2c4a9379546f4c9c8ed1539b6e193, type: 2}
   nonObstacleMaterial: {fileID: 2100000, guid: 6d2f2b972fbf35e4fa606bba3857b043, type: 2}
+  underSnakeMaterial: {fileID: 2100000, guid: 44f01be17e2f67542b735d5713687426, type: 2}
 --- !u!1 &8729359229040009870
 GameObject:
   m_ObjectHideFlags: 0

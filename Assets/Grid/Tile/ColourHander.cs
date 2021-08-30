@@ -9,6 +9,7 @@ public class ColourHander : MonoBehaviour
 
     [SerializeField] private Material obstacleMaterial;
     [SerializeField] private Material nonObstacleMaterial;
+    [SerializeField] private Material underSnakeMaterial;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class ColourHander : MonoBehaviour
     private void Update()
     {
         if (gridTile.IsObstacle) spriteRenderer.material = obstacleMaterial;
+        else if (gridTile.IsInSnake) spriteRenderer.material = underSnakeMaterial;
         else spriteRenderer.material = nonObstacleMaterial;
     }
 

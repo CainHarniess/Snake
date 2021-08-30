@@ -14,9 +14,9 @@ namespace Assets.Snake
 
         protected virtual void Awake()
         {
-            gridManager = GameObject.FindWithTag("Grid").GetComponent<GridManager>();
+            gridManager = GameObject.FindWithTag(Tags.Grid).GetComponent<GridManager>();
             currentGridTilePosition = transform.position;
-            gridManager.SetGridTileSnakeStatusAtPosition(currentGridTilePosition, true);
+            gridManager.SetGridTileSnakeStatusAtPosition(currentGridTilePosition, true, true);
             nextGridTilePosition = GetNextGridTilePosition();
         }
 

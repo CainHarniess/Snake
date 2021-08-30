@@ -7,7 +7,7 @@ namespace Assets.Snake
     {
         public override void UpdateSegmentTilePositions()
         {
-            gridManager.SetGridTileSnakeStatusAtPosition(currentGridTilePosition, false);
+            gridManager.SetGridTileSnakeStatusAtPosition(currentGridTilePosition, false, true);
             base.UpdateSegmentTilePositions();
         }
     }

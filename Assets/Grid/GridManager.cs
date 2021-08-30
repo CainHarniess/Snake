@@ -37,23 +37,25 @@ namespace Assets.Grid
             return gridDictionary[GetGridCoordinateFromPosition(position)].gameObject;
         }
 
-        public void SetGridTileSnakeStatusAtPosition(Vector3 position, bool status)
+        public void SetGridTileSnakeStatusAtPosition(Vector3 position, bool status, bool ignoreSnake = false)
         {
             Vector2Int currentCoordinates = GetGridCoordinateFromPosition(position);
             if (GridDictionary.ContainsKey(currentCoordinates))
             {
                 GridTile nextGridTile = GridDictionary[currentCoordinates];
 
-                if (nextGridTile.IsObstacle && status == true)
+                if ((nextGridTile.IsObstacle || nextGridTile.IsInSnake)
+                    && status == true)
                 {
-                    GameOverSequence();
+                    GameOverSequence(ignoreSnake);
                 }
                 else nextGridTile.IsInSnake = status;
             }
         }
 
-        private void GameOverSequence()
+        private void GameOverSequence(bool ignore = false)
         {
+            if (ignore) return;
             Sound gameOverSound = Array.Find(gameStateMachine.AudioManager.Sounds, sound => sound.Name == nameof(GameOverState));
             gameStateMachine.SetState(new GameOverState(gameOverSound, gameOverUi));
             gridCollisionSource.Play();
