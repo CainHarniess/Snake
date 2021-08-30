@@ -6,14 +6,15 @@ namespace Assets.Edibles
 {
     public class SpawnManager : MonoBehaviour
     {
-        [SerializeField] private List<Vector3> validSpawnPositions;
-        
+        private List<Vector3> validSpawnPositions;
+        private GridManager gridManager;
+
         [SerializeField] private Edible edible;
-        [SerializeField] private GridManager gridManager;
 
         private void Awake()
         {
-            validSpawnPositions = new List<Vector3>(gridManager.GridDictionary.Count);   
+            gridManager = GameObject.FindGameObjectWithTag(Tags.Grid).GetComponent<GridManager>();
+            validSpawnPositions = new List<Vector3>(gridManager.GridDictionary.Count);
         }
 
         private void Start()

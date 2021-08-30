@@ -15,7 +15,7 @@ namespace Assets.Snake
 
         private void Awake()
         {
-            snakeMovement = GetComponentInParent<SnakeMovement>();
+            snakeMovement = GameObject.FindGameObjectWithTag(Tags.SnakeManager).GetComponentInParent<SnakeMovement>();
             RefreshCurrentDirection();
         }
 

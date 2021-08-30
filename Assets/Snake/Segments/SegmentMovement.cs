@@ -6,9 +6,9 @@ namespace Assets.Snake
     public abstract class SegmentMovement : MonoBehaviour
     {
         protected GridManager gridManager;
+        protected Vector3 currentGridTilePosition;
+        protected Vector3 nextGridTilePosition;
 
-        [SerializeField] protected Vector3 currentGridTilePosition;
-        [SerializeField] protected Vector3 nextGridTilePosition;
         public Vector3 CurrentGridTilePosition { get => currentGridTilePosition; }
         public Vector3 NextGridTilePosition { get => nextGridTilePosition; }
 

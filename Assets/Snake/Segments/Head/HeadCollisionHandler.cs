@@ -8,11 +8,11 @@ namespace Assets.Snake
 
         private void Awake()
         {
-            snakeLength = GetComponentInParent<SnakeLength>();
+            snakeLength = GameObject.FindGameObjectWithTag(Tags.SnakeManager).GetComponentInParent<SnakeLength>();
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Edible")) snakeLength.IncreaseSnakeLength();
+            if (other.gameObject.CompareTag(Tags.Edible)) snakeLength.IncreaseSnakeLength();
         }
     }
 }
