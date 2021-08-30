@@ -1,13 +1,11 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 
 namespace Assets.UI
 {
-    public class SaveButton : MonoBehaviour, IButton
+    public class SaveButton : Button
     {
-        public void OnButtonClick()
+        public override void OnButtonClick()
         {
-            Debug.Log("Settings saved.");
             SceneManager.LoadScene(0);
         }
     }
