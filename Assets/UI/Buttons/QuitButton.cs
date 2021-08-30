@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace Assets.UI
 {
-    public class QuitButton : MonoBehaviour, IButton
+    public class QuitButton : Button
     {
-        public void OnButtonClick()
+        public override void OnButtonClick()
         {
             Application.Quit();
         }

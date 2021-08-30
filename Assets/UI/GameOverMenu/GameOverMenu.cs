@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using Assets.UI;
 
 public class GameOverMenu : MonoBehaviour
 {

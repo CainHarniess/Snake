@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Assets.Game;
 
@@ -7,10 +8,11 @@ namespace Assets.Grid
     public class GridManager : MonoBehaviour
     {
         private Dictionary<Vector2Int, GridTile> gridDictionary = new Dictionary<Vector2Int, GridTile>(400);
-        
+        private AudioSource gridCollisionSource;
+        private StateMachine gameStateMachine;
+
         [SerializeField] private Vector2Int gridSize;
         [SerializeField] private int tileSeparation = 10;
-        [SerializeField] private StateMachine gameStateMachine;
         [SerializeField] private GameObject gameOverUi;
 
         public Vector2Int GridSize { get => gridSize; }
@@ -20,6 +22,7 @@ namespace Assets.Grid
         private void Awake()
         {
             gameStateMachine = GameObject.FindGameObjectWithTag("GameStateMachine").GetComponent< StateMachine>();
+            gridCollisionSource = GetComponent<AudioSource>();
         }
 
         public Vector2Int GetGridCoordinateFromPosition(Vector3 gridTilePosition)
@@ -43,10 +46,17 @@ namespace Assets.Grid
 
                 if (nextGridTile.IsObstacle && status == true)
                 {
-                    gameStateMachine.SetState(new GameOverState(gameOverUi));
+                    GameOverSequence();
                 }
                 else nextGridTile.IsInSnake = status;
             }
+        }
+
+        private void GameOverSequence()
+        {
+            Sound gameOverSound = Array.Find(gameStateMachine.AudioManager.Sounds, sound => sound.Name == nameof(GameOverState));
+            gameStateMachine.SetState(new GameOverState(gameOverSound, gameOverUi));
+            gridCollisionSource.Play();
         }
     }
 }
