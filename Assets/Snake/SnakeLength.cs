@@ -21,8 +21,8 @@ namespace Assets.Snake
         {
             GameObject newSegment = Instantiate(snakeBodySegmentPrefab,
                                                 GridInstantiationPosition,
-                                                snakeManager.SnakePreTail.transform.rotation,
-                                                transform
+                                                snakeManager.SnakePreTail.transform.rotation//,
+                                                //transform
                                                );
             snakeManager.AddSegmentGameObjectToSnake(newSegment);
         }

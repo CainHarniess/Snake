@@ -14,11 +14,10 @@ namespace Assets.Snake
         {
             try 
             {
-                // Debug.Log("Try block: " + preceedingSegmentMovement.CurrentGridTilePosition);
-                return preceedingSegmentMovement.CurrentGridTilePosition; }
+                return preceedingSegmentMovement.CurrentGridTilePosition;
+            }
             catch
             {
-                // Debug.Log("Catch block; " + currentGridTilePosition);
                 return currentGridTilePosition;
             }
         }
